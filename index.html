@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CyberHIIT Neon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-cyan: #00E5FF;
+            --neon-magenta: #ff00ff;
+            --neon-yellow: #ffff00;
+        }
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #06060a;
+            color: #fff;
+            overflow: hidden;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+        /* Contenedor para forzar aspecto móvil en PC/Tablet */
+        #root {
+            width: 100%;
+            max-width: 450px; /* Ancho típico de un smartphone grande */
+            height: 100dvh;
+            position: relative;
+            background: rgba(6, 6, 10, 0.8);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 1);
+        }
+        .cyber-bg {
+            background: radial-gradient(circle at 50% 50%, #0d1a2b 0%, #06060a 100%);
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+        }
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg) translateY(-100px);
+            transform-origin: top;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+        .glass-panel {
+            background: rgba(10, 20, 30, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+        }
+        .glass-btn {
+            background: rgba(0, 229, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            box-shadow: 0 4px 16px rgba(0, 229, 255, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+            transform: translateY(-1px);
+        }
+        .glass-btn:active {
+            transform: scale(0.95);
+        }
+        .neon-text-cyan { 
+            color: #00E5FF; 
+            text-shadow: 0 0 15px rgba(0, 229, 255, 0.8), 0 0 30px rgba(0, 229, 255, 0.4); 
+        }
+        .timer-main-text {
+            color: #00E5FF;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 1), 0 0 40px rgba(0, 229, 255, 0.6);
+        }
+        .progress-ring { transition: stroke-dashoffset 0.35s; transform: rotate(-90deg); transform-origin: 50% 50%; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite ease-in-out; }
+        
+        @keyframes flash {
+            0% { background-color: transparent; }
+            50% { background-color: rgba(0, 229, 255, 0.2); }
+            100% { background-color: transparent; }
+        }
+        .flash-active { animation: flash 0.3s ease-out; }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="cyber-bg"></div>
+    <div class="cyber-grid"></div>
+    <div id="root"></div>
+</body>
+</html>
